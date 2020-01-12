@@ -1,0 +1,15 @@
+<h1 align="center">Listing all characters</h1>
+<hr/>
+
+<% @characters.each do |character| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="center">
+
+      </section>
+    </div>
+    <div class="col-md-8 card card-body bg-light mb-3">
+      <h4><%= link_to character.name, character%></h4>
+    </div>
+  </div>
+<% end %>
