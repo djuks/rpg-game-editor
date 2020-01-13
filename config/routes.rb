@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  root to: "pages#home"
 
-  root "pages#home"
-  get 'pages/home', to: 'pages#home'
-
+  devise_for :users
   resources :characters
 end

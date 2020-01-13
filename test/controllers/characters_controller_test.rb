@@ -1,8 +1,12 @@
 require 'test_helper'
 
-class CharactersControllerTest < ActionDispatch::IntegrationTest
+class CharactersControllerTest < ActionController::TestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @character = characters(:one)
+    @user = User.create!(email: "jon@example.com",
+                         password: "password")
+    @character = Character.create!(name:"Trol", user: @user)
   end
 
   test "should get index" do
@@ -16,6 +20,7 @@ class CharactersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create character" do
+    sign_in @user
     assert_difference('Character.count') do
       post characters_url, params: { character: { name: @character.name } }
     end

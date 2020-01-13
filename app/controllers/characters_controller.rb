@@ -1,5 +1,7 @@
 class CharactersController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_character, only: [:show, :edit, :update, :destroy]
+
 
   # GET /characters
   # GET /characters.json
@@ -25,6 +27,7 @@ class CharactersController < ApplicationController
   # POST /characters.json
   def create
     @character = Character.new(character_params)
+    @character.user = current_user
 
     respond_to do |format|
       if @character.save
@@ -69,6 +72,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:type)
+      params.require(:character).permit(:name)
     end
 end
