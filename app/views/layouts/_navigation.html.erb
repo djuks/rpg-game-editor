@@ -10,32 +10,33 @@
         <%= link_to "All Characters", characters_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <%= link_to "New", new_character_path, class: "nav-link"%>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <% if user_signed_in? %>
+          <%= link_to "New", new_character_path, class: "nav-link"%>
+        <% end %>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <% if user_signed_in? %>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.email %> 'Account
-            </a>
-          <% else %>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
+            <%= current_user.email %> 'Account
           </a>
-          <% end %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <ul>
+              <li class="nonbullet"><%= link_to 'Your profile',root_path, class: "nav-link"%></li>
+              <li class="nonbullet"><%= link_to 'Edit profile',edit_user_registration_path, class: "nav-link"%></li>
+            </ul>
             <div class="dropdown-divider"></div>
             <ul>
-              <li><%= link_to 'Log out',destroy_user_session_path, method: :delete, class: "nav-link"%></li>
+              <li class="nonbullet"><%= link_to 'Log out',destroy_user_session_path, method: :delete, class: "nav-link"%></li>
             </ul>
           </div>
+          <% else %>
+            <ul>
+              <li class="nonbullet"><%= link_to 'Log in', new_user_session_path,class: "nav-link"%></li>
+            </ul>
+          <% end %>
         </li>
       <ul/>
     </form>
