@@ -10,7 +10,7 @@
     <p>Listing character attributes</p>
     <hr />
     <p>
-      <small>Created by: <%= @character.user.email %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
+      <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
     </p>
     <div>
       <tr>
