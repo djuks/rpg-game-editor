@@ -1,14 +1,15 @@
 <h1 align="center"><%= @character.name.capitalize %></h1>
 <hr />
-<div class="row">
-  <div class="col-md-2">
+<div class="row ">
+  <div class="col-md-2 offset-1">
     <section class="center card card-body bg-light">
-        Character Image
+        <%= image_tag(@character.image) %>
     </section>
   </div>
   <div class="col-md-8 card card-body bg-light">
     <p>Listing character attributes</p>
     <hr />
+
     <p>
       <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
     </p>

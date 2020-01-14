@@ -2,14 +2,14 @@
 <hr/>
 
 <% @characters.each do |character| %>
-  <div class="row">
-    <div class="col-md-2">
-      <section class="center">
-
+  <div class="row ">
+    <div class="col-md-2 offset-1 ">
+      <section class="center card card-body bg-light">
+          <%= image_tag(character.image) %>
       </section>
     </div>
-    <div class="col-md-8 card card-body bg-light mb-3">
-      <h4><%= link_to character.name, character%></h4>
+    <div class="col-md-8 card card-body bg-light">
+      <h4 class="center"><%= link_to character.name, character%></h4>
     </div>
   </div>
 <% end %>
