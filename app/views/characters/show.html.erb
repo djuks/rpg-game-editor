@@ -1,13 +1,29 @@
 <h1 align="center"><%= @character.name.capitalize %></h1>
 <hr />
+
 <div class="row ">
   <div class="col-md-2 offset-1">
-    <section class="center card card-body bg-light">
-        <%= image_tag(@character.image) %>
+    <section class="center card card-body bg-light cardsize embed-responsive embed-responsive-16by9">
+      <% if @character.image.attached? %>
+        <span class="embed-responsive-item"><%= image_tag(@character.image) %> </span>
+      <% else %>
+        <small>No image</small>
+      <% end %>
     </section>
   </div>
-  <div class="col-md-8 card card-body bg-light">
-    <p>Listing character attributes</p>
+
+  <div class="col-md-8 card card-body bg-light" >
+    <p>Listing character attributes:</p>
+    <% if @character.abilities.any? %>
+      <% @character.abilities.each do |ability| %>
+        <div class="row ">
+          <div class="col-md-2 card text-white bg-success ml-4 mb-1">
+            <%= ability.name %>
+            <%= ability.value %>
+          </div>
+        </div>
+      <% end %>
+    <%end%>
     <hr />
 
     <p>

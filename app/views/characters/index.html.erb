@@ -2,14 +2,19 @@
 <hr/>
 
 <% @characters.each do |character| %>
-  <div class="row ">
+  <div class="row pb-2">
     <div class="col-md-2 offset-1 ">
-      <section class="center card card-body bg-light">
-          <%= image_tag(character.image) %>
+      <section class="center card card-body bg-light cardsize embed-responsive embed-responsive-16by9">
+        <% if character.image.attached? %>
+          <span class="embed-responsive-item"><%= image_tag(character.image) %> </span>
+        <% else %>
+          <small>No image</small>
+        <% end %>
       </section>
     </div>
     <div class="col-md-8 card card-body bg-light">
       <h4 class="center"><%= link_to character.name, character%></h4>
+      <p><%= truncate(character.description, length: 290) %></p>
     </div>
   </div>
 <% end %>

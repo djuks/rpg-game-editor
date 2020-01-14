@@ -17,10 +17,12 @@ class CharactersController < ApplicationController
   # GET /characters/new
   def new
     @character = Character.new
+    @character.abilities.build
   end
 
   # GET /characters/1/edit
   def edit
+    @character.abilities.build
   end
 
   # POST /characters
@@ -72,6 +74,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:name, :image)
+      params.require(:character).permit(:name, :image, :description, abilities_attributes: [:id, :_destroy, :character_id, :name, :value])
     end
 end
