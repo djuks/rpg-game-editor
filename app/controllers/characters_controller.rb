@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.json
   def index
-    @characters = Character.all
+    @characters = Character.order(:name).page(params[:page]).per(3)
   end
 
   # GET /characters/1

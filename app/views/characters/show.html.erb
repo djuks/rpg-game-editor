@@ -2,17 +2,15 @@
 <hr />
 
 <div class="row ">
-  <div class="col-md-2 offset-1">
-    <section class="center card card-body bg-light cardsize embed-responsive embed-responsive-16by9">
-      <% if @character.image.attached? %>
-        <span class="embed-responsive-item"><%= image_tag(@character.image) %> </span>
-      <% else %>
-        <small>No image</small>
-      <% end %>
-    </section>
+  <div class="col-md-2 offset-1 card-img-top card card-body bg-light mx-auto colsize" align="center">
+    <% if @character.image.attached? %>
+      <%= image_tag(@character.image, size: '120x120') %>
+    <% else %>
+      <small>No image</small>
+    <% end %>
   </div>
 
-  <div class="col-md-8 card card-body bg-light" >
+  <div class="col-md-8 card card-body bg-light mx-auto" >
     <p>Listing character attributes:</p>
     <% if @character.abilities.any? %>
       <% @character.abilities.each do |ability| %>
@@ -31,12 +29,24 @@
     </p>
     <div>
       <tr>
-        <td><%= link_to 'Edit', edit_character_path(@character), class: "btn btn-warning" %></td>
         <td><%= link_to 'Back', characters_path, class: "btn btn-primary" %></td>
-        <td><%= link_to "Delete this character", character_path(@character), method: :delete,
-                                          data: { confirm: "Are you sure you want to delete?" },
-                                          class: "btn btn-xs btn-danger" %></td>
+        <%if current_user && current_user == @character.user %>
+          <td><%= link_to 'Edit', edit_character_path(@character), class: "btn btn-warning" %></td>
+          <td><%= link_to "Delete this character", character_path(@character), method: :delete,
+                                            data: { confirm: "Are you sure you want to delete?" },
+                                            class: "btn btn-xs btn-danger" %>
+          </td>
+        <%end%>
+
       </tr>
     </div>
   </div>
+</div>
+<div class="row">
+    <div class="col-md-11 card card-body bg-light mx-auto mt-3">
+      <% if @character.description %>
+        <p class="biography-title"><%=@character.name.capitalize%>'s Biography</p>
+        <p><%=@character.description%></p>
+      <%end%>
+    <div/>
 </div>
