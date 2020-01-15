@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
   # GET /characters
@@ -75,5 +76,11 @@ class CharactersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
       params.require(:character).permit(:name, :image, :description, abilities_attributes: [:id, :_destroy, :character_id, :name, :value])
+    end
+
+    def require_same_user
+      if current_user != @character.user
+        redirect_to characters_path
+      end
     end
 end

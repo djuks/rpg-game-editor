@@ -18,5 +18,8 @@
     </div>
   </div>
 <% end %>
-
-<%= paginate @characters, theme: 'twitter-bootstrap-4' %>
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <p> <%= paginate @characters, theme: 'twitter-bootstrap-4' %> </p>
+  </div>
+</div>
