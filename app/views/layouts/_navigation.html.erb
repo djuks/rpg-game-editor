@@ -9,6 +9,11 @@
       <li class="nav-item active">
         <%= link_to "All Characters", characters_path, class: "nav-link"%>
       </li>
+      <li class="nav-item active">
+        <% if user_signed_in? %>
+          <%= link_to "Your Characters", user_path(current_user), class: "nav-link"%>
+        <% end %>
+      </li>
       <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to "New", new_character_path, class: "nav-link"%>
@@ -24,7 +29,6 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <ul>
-              <li class="nonbullet"><%= link_to 'Your profile',root_path, class: "nav-link"%></li>
               <li class="nonbullet"><%= link_to 'Edit profile',edit_user_registration_path, class: "nav-link"%></li>
             </ul>
             <div class="dropdown-divider"></div>
