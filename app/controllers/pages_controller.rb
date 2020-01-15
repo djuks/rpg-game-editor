@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :load_characters, only: :home
+  
   def home
 
   end

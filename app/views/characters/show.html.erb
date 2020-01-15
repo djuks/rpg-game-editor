@@ -1,6 +1,5 @@
 <h1 align="center"><%= @character.name.capitalize %></h1>
 <hr />
-
 <div class="row ">
   <div class="col-md-2 offset-1 card-img-top card card-body bg-light mx-auto colsize" align="center">
     <% if @character.image.attached? %>
@@ -23,7 +22,6 @@
       <% end %>
     <%end%>
     <hr />
-
     <p>
       <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
     </p>
@@ -37,7 +35,6 @@
                                             class: "btn btn-xs btn-danger" %>
           </td>
         <%end%>
-
       </tr>
     </div>
   </div>

@@ -4,13 +4,11 @@
 <% @user_characters.each do |character| %>
   <div class="row pb-2 ">
     <div class="col-md-2 offset-1  card-img-top card card-body bg-light mx-auto" align="center">
-
         <% if character.image.attached? %>
           <%= image_tag(character.image, size: '120x120') %>
         <% else %>
           <small>No image</small>
         <% end %>
-
     </div>
     <div class="col-md-8 card card-body bg-light pr-2 colsize ml-2 mx-auto">
       <h4 class="center"><%= link_to character.name, character%></h4>
