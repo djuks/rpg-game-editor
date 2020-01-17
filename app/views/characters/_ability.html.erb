@@ -1,6 +1,7 @@
 <tr>
   <td><%= f.text_field :name, label: false %></td>
   <td><%= f.text_field :value, label: false, as: :integer %></td>
+  <td><%= f.file_field :picture, label: false %></td>
   <td>
     <% f.text_field :_destroy%>
     <%= link_to 'Delete', '#', class: 'remove_record' %>

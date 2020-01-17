@@ -11,16 +11,23 @@
 
   <div class="col-md-8 card card-body bg-light mx-auto" >
     <p>Listing character attributes:</p>
-    <% if @character.abilities.any? %>
+    <div class="row justify-content-start">
       <% @character.abilities.each do |ability| %>
-        <div class="row ">
-          <div class="col-md-2 card text-white bg-success ml-4 mb-1">
-            <%= ability.name %>
-            <%= ability.value %>
+        <div class="col-md-3  ">
+          <div class="card" style="width: 132px;">
+            <% if ability.picture.attached? %>
+              <%= image_tag(ability.picture, size: '130x130') %>
+            <% else %>
+              <small>No image</small>
+            <% end %>
+
+              <p class="mx-auto"><%= ability.name %>: <%= ability.value %></p>
+
           </div>
         </div>
       <% end %>
-    <%end%>
+    </div>
+
     <hr />
     <p>
       <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
