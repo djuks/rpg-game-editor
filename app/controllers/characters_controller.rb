@@ -3,7 +3,6 @@ class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
-
   def index
     @characters = Character.order(:name).page(params[:page]).per(3)
   end
@@ -46,7 +45,6 @@ class CharactersController < ApplicationController
     flash[:danger] = "Character was deleted successfully"
     redirect_to characters_path
   end
-
 
   private
 
