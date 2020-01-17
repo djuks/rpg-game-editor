@@ -15,7 +15,11 @@
   <% @characters.each do |character| %>
     <div class="col-md-3  ">
       <div class="card" style="width: 250px;">
-        <%= image_tag(character.image, size: '250x250') %>
+        <% if character.image.attached? %>
+          <%= image_tag(character.image, size: '250x250') %>
+        <% else %>
+          <small>No image</small>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= character.name %></h5>
           <p class="card-text"><%= truncate(character.description, length: 150) %></p>

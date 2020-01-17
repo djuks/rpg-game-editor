@@ -32,40 +32,35 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @character.user = current_user
 
-    respond_to do |format|
-      if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render :show, status: :created, location: @character }
-      else
-        format.html { render :new }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    if @character.save
+      flash[:success] = "Character was created successfully!"
+      redirect_to character_path(@character)
+    else
+      render 'new'
     end
   end
+
 
   # PATCH/PUT /characters/1
   # PATCH/PUT /characters/1.json
   def update
-    respond_to do |format|
-      if @character.update(character_params)
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
-        format.json { render :show, status: :ok, location: @character }
-      else
-        format.html { render :edit }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    if @character.update(character_params)
+      flash[:success] = "Character was updated successfully!"
+      redirect_to character_path(@character)
+    else
+      render 'edit'
     end
   end
+
 
   # DELETE /characters/1
   # DELETE /characters/1.json
   def destroy
     @character.destroy
-    respond_to do |format|
-      format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:danger] = "Character was deleted successfully"
+    redirect_to characters_path
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
