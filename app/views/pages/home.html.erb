@@ -1,0 +1,31 @@
+<div class="jumbotron center" >
+  <h1>Welcome to RPG editor</h1>
+  <h2>Create your own heroes today!</h2>
+  <p>
+    <% if current_user %>
+    <% else %>
+      <%= link_to "Sign up",new_user_registration_path, class: "btn btn-danger btn-lg"%>
+    <% end %>
+  </p>
+</div>
+<h1 class="center stylelatest">Latest Heroes</h1>
+
+<hr/>
+<div class="row justify-content-between">
+  <% @characters.each do |character| %>
+    <div class="col-md-3  ">
+      <div class="card" style="width: 250px;">
+        <% if character.image.attached? %>
+          <%= image_tag(character.image, size: '250x250') %>
+        <% else %>
+          <small>No image</small>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= character.name %></h5>
+          <p class="card-text"><%= truncate(character.description, length: 150) %></p>
+          <%= link_to 'View', character, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

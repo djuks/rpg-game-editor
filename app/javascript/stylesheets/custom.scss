@@ -1,0 +1,51 @@
+.center {
+  text-align: center;
+}
+.jumbotron {
+  background-color: black;
+}
+.jumbotron h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  text-shadow: -4px -3px 0px black;
+}
+
+.jumbotron h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  text-shadow: -4px -3px 0px black;
+}
+.jumbotron {
+  background-image: url('/assets/cover.jpg');
+}
+.custompad{
+  padding-top: -50px;
+}
+
+.nonbullet{
+  list-style-type: none
+}
+
+.midall{
+  vertical-align: bottom;
+}
+
+.colsize {
+  height: 162px;
+
+}
+
+.stylelatest{
+  font-weight: bold;
+  text-shadow: 6px 0px 4px rgba(206,89,55,0.93);
+}
+.biography-title{
+  font-weight: bold;
+  font-size: large;
+}
