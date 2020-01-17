@@ -1,10 +1,12 @@
 <h1 align="center">Edit Character</h1>
 <hr />
 <div class="row">
-  <div class="col-md-2 mx-auto">
-    <section class="center card card-body bg-light">
-        <%= image_tag(@character.image) %>
-    </section>
+  <div class="col-md-2 offset-1 card-img-top card card-body bg-light mx-auto colsize" align="center">
+    <% if @character.image.attached? %>
+      <%= image_tag(@character.image, size: '120x120') %>
+    <% else %>
+      <small>No image</small>
+    <% end %>
   </div>
   <div class="col-md-8 mx-auto">
     <%= render 'form' %>
