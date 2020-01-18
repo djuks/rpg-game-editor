@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :characters
+  resources :abilities
   resources :users, only: [:show]
 end
