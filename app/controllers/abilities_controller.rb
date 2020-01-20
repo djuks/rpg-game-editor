@@ -1,5 +1,5 @@
 class AbilitiesController < ApplicationController
-  before_action :set_ability, only: [:show, :edit, :update, :destroy]
+  #before_action :set_ability, only: [:show, :edit, :update, :destroy]
 
   # GET /abilities
   # GET /abilities.json
@@ -15,7 +15,6 @@ class AbilitiesController < ApplicationController
   # GET /abilities/new
   def new
     @ability = Ability.new
-    @user = User.find(params[:user_id])
   end
 
   # GET /abilities/1/edit
