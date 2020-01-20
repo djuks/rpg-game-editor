@@ -11,27 +11,26 @@
 
   <div class="col-md-8 card card-body bg-light mx-auto" >
     <p>Listing character attributes:</p>
-    <div class="row justify-content-start">
+
+    <div class="row ">
       <% @character.abilities.each do |ability| %>
-        <div class="col-md-3  ">
+        <div class="col-md-8  ">
           <div class="card" style="width: 132px;">
             <% if ability.picture.attached? %>
               <%= image_tag(ability.picture, size: '130x130') %>
             <% else %>
               <small>No image</small>
             <% end %>
-
               <p class="mx-auto"><%= ability.name %>: <%= ability.value %></p>
-
+              <%= link_to 'Edit Ability', new_ability_path, remote: true, class:"btn btn-primary" %>
+              <%= link_to 'Delete Ability', new_ability_path, remote: true, class:"btn btn-primary" %>
           </div>
         </div>
       <% end %>
-      <div id="new-ability">
-        <%= link_to 'New Ability', new_ability_path(@character), remote: true %>
-      </div>
-
     </div>
-
+    <div id="new-ability" class="pt-2 pb-2">
+      <%= link_to 'New Ability', new_ability_path, remote: true, class:"btn btn-primary" %>
+    </div>
     <hr />
     <p>
       <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>

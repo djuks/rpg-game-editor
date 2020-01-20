@@ -1,1 +1,1 @@
-$('#new-ability a').parent().html("<%= j render 'form' %>")
+$('#new-ability a').parent().append("<%= j render 'form', ability: @ability %>");
