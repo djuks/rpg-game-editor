@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  resources :characters
-  resources :abilities
+  resources :characters do
+    resources :abilities
+  end
   resources :users, only: [:show]
+  get 'characters/:id', to: 'abilities#create'
 end
