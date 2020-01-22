@@ -3,14 +3,6 @@ class AbilitiesController < ApplicationController
   before_action :set_ability, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
-
-  def index
-    @abilities = Ability.all
-  end
-
-  def show
-  end
-
   def new
     @ability = Ability.new
   end
@@ -47,7 +39,6 @@ class AbilitiesController < ApplicationController
       format.html { redirect_to @character, notice: 'Ability was successfully destroyed.' }
     end
   end
-  private
 
   private
 
