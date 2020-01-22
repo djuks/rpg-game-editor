@@ -12,13 +12,19 @@
   <div class="col-md-8 card card-body bg-light mx-auto" >
     <p>Listing character attributes:</p>
 
-    <div class="row" id="abilities">
-      <%= render partial: 'abilities/abilities', object: @abilities %>
+    <div class="row mx-auto pt-2 pl-4" id="abilities">
+      <%= render partial: 'abilities/ability', object: @ability%>
+
     </div>
+
+    <hr/>
     <div id="new-ability" class="pt-2 pb-2">
-      <%= link_to 'New Ability', new_character_ability_path(@character), remote: true, class:"btn btn-primary" %>
+      <%if current_user && current_user == @character.user %>
+        <%= link_to 'New Ability', new_character_ability_path(@character), remote: true, class:"btn btn-primary" %>
+      <%end%>
     </div>
     <hr />
+
     <p>
       <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
     </p>

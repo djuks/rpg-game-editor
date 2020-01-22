@@ -1,6 +1,7 @@
 class AbilitiesController < ApplicationController
   before_action :get_character
   before_action :set_ability, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
   def index
@@ -25,7 +26,6 @@ class AbilitiesController < ApplicationController
         format.html { redirect_to @character, notice: 'Ability was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @ability.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -35,10 +35,8 @@ class AbilitiesController < ApplicationController
       if @ability.update(ability_params)
         format.js { flash.now[:notice] = "Ability was updated successfully" }
         format.html { redirect_to @character, notice: 'Ability was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ability }
       else
         format.html { render :edit }
-        format.json { render json: @ability.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,12 +45,12 @@ class AbilitiesController < ApplicationController
     @ability.destroy
     respond_to do |format|
       format.html { redirect_to @character, notice: 'Ability was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
   private
 
   private
+
   def set_ability
     @ability = Ability.find(params[:id])
   end
@@ -63,5 +61,11 @@ class AbilitiesController < ApplicationController
 
   def get_character
     @character = Character.find(params[:character_id])
+  end
+
+  def require_same_user
+    if current_user != @character.user
+      redirect_to characters_path
+    end
   end
 end
