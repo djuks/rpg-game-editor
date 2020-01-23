@@ -12,7 +12,7 @@
   <div class="col-md-8 card card-body bg-light mx-auto" >
     <p>Listing character attributes:</p>
 
-    <div class="row mx-auto pt-2 pl-4" id="abilities">
+    <div class="row  pt-2 " id="abilities">
       <%= render partial: 'abilities/ability', object: @ability%>
 
     </div>
@@ -32,8 +32,8 @@
       <tr>
         <td><%= link_to 'Back', characters_path, class: "btn btn-primary" %></td>
         <%if current_user && current_user == @character.user %>
-          <td><%= link_to 'Edit', edit_character_path(@character), class: "btn btn-warning" %></td>
-          <td><%= link_to "Delete this character", character_path(@character), method: :delete,
+          <td><%= link_to 'Edit Character', edit_character_path(@character), class: "btn btn-warning" %></td>
+          <td><%= link_to "Delete Character", character_path(@character), method: :delete,
                                             data: { confirm: "Are you sure you want to delete?" },
                                             class: "btn btn-xs btn-danger" %>
           </td>
