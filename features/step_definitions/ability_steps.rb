@@ -1,12 +1,9 @@
-Given("I have created several character abilities") do
+Given("I have created character with several abilities") do
   FactoryBot.create(:character,
                     :user => @registered_user,
                     :name => "Trol",
                     :description => "My first trol")
 
-end
-
-When("I visit character show page") do
   visit user_path(@registered_user)
   click_on "Trol"
   click_on "New Ability"
@@ -19,6 +16,11 @@ When("I visit character show page") do
   click_on "Create Ability"
 end
 
+When("I visit character show page") do
+  visit user_path(@registered_user)
+  click_on "Trol"
+end
+
 Then("I should see the list of character abilities") do
   visit user_path(@registered_user)
   click_on "Trol"
@@ -26,7 +28,7 @@ Then("I should see the list of character abilities") do
   expect(page).to have_content("Speed: 15")
 end
 
-Given("I have created character ability") do
+Given("I have created character and ability") do
   FactoryBot.create(:character,
                     :user => @registered_user,
                     :name => "Golem",

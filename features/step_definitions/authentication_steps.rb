@@ -13,6 +13,9 @@ When("I fill in the sign up form") do
   click_button "Sign up"
 end
 
+Then "I should be signed up" do
+  expect(page).to have_content("Welcome! You have signed up successfully.")
+end
 
 Given("I am a registered user") do
   @registered_user = FactoryBot.create(:user,

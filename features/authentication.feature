@@ -7,6 +7,7 @@ Feature: Authentication
 Scenario: Signing up
   Given I visit the homepage
   When I fill in the sign up form
+  Then I should be signed up
 
 Scenario: User Logs In
   Given I am a registered user

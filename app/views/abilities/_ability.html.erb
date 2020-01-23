@@ -1,6 +1,6 @@
 <% @character.abilities.each do |ability| %>
   <div class="col-md-4 justify-content-start pt-2">
-    <div class="card" style="width: 132px;">
+    <div class="card ability" style="width: 132px;" id="ability-<%= ability.id %>">
       <% if ability.picture.attached? %>
         <%= image_tag(ability.picture, size: '130x130') %>
       <% else %>
@@ -10,7 +10,7 @@
         <p class="mx-auto" "><%= ability.name %>: <%= ability.value %></p>
         <%if current_user && current_user == @character.user %>
           <section id="edit-ability"><%= link_to 'Modify', edit_character_ability_path(@character, ability), remote: true, class:"btn btn-warning" %></section>
-          <section><%= link_to 'Destroy', [@character, ability], method: :delete, data: { confirm: "Are you sure you want to delete ability?" }, remote: true, class:"btn btn-danger" %></section>
+          <section><%= link_to 'Destroy', [@character, ability], method: :delete, data: { confirm: "Are you sure you want to delete ability?" }, remote: true, class:"btn btn-danger delete" %></section>
         <% end %>
       </div>
     </div>

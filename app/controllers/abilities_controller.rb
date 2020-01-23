@@ -36,6 +36,7 @@ class AbilitiesController < ApplicationController
   def destroy
     @ability.destroy
     respond_to do |format|
+      format.js { flash.now[:notice] = "Ability was deleted successfully" }
       format.html { redirect_to @character, notice: 'Ability was successfully destroyed.' }
     end
   end
