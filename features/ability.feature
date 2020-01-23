@@ -9,7 +9,7 @@ Background:
 
 Scenario: Listing all characters abilities that user has made
   Given I have created character with several abilities
-  When I visit character show page
+  When I visit character Trol show page
   Then I should see the list of character abilities
 
 Scenario: Editing character ability

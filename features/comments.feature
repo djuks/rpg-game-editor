@@ -9,5 +9,5 @@ Background:
 
 Scenario: Listing all comments on character show page
   Given I have created character and comment
-  When I visit character show page
+  When I visit character Wizzard show page
   Then I should see my comment on character show page

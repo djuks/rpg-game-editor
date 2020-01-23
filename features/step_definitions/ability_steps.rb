@@ -16,7 +16,7 @@ Given("I have created character with several abilities") do
   click_on "Create Ability"
 end
 
-When("I visit character show page") do
+When("I visit character Trol show page") do
   visit user_path(@registered_user)
   click_on "Trol"
 end
