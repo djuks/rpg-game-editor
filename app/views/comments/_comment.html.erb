@@ -1,0 +1,14 @@
+<div class="row pb-2 justify-content-center">
+  <div class="col-md-8 card card-body bg-light">
+    <p><%= comment.description %></p>
+    <p>
+      <span class="quiet"><small>Created:
+                          <%= time_ago_in_words(comment.created_at) %> ago by
+                          <%= comment.user.username %></small></span>
+                          <%if current_user && current_user == @character.user %>
+      <section><%= link_to 'Edit comment', remote: true, class:"btn-xs btn-warning" %></section>
+      <section><%= link_to 'Destroy', remote: true, class:"btn-xs btn-danger delete" %></section>
+    <% end %>
+    </p>
+  </div>
+</div>
