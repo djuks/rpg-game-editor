@@ -9,8 +9,8 @@
       <div class="card-body">
         <p class="mx-auto" "><%= ability.name %>: <%= ability.value %></p>
         <%if current_user && current_user == @character.user %>
-          <section id="edit-ability"><%= link_to 'Edit', edit_character_ability_path(@character, ability), remote: true, class:"btn btn-warning" %></section>
-          <section><%= link_to 'Delete', [@character, ability], method: :delete, data: { confirm: "Are you sure you want to delete ability?" }, remote: true, class:"btn btn-danger" %></section>
+          <section id="edit-ability"><%= link_to 'Modify', edit_character_ability_path(@character, ability), remote: true, class:"btn btn-warning" %></section>
+          <section><%= link_to 'Destroy', [@character, ability], method: :delete, data: { confirm: "Are you sure you want to delete ability?" }, remote: true, class:"btn btn-danger" %></section>
         <% end %>
       </div>
     </div>

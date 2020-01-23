@@ -1,9 +1,9 @@
-<%= form_with(model: [@character, ability]) do |form| %>
-  <% if ability.errors.any? %>
+<%= form_with(model: [@character, @ability]) do |form| %>
+  <% if @ability.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(ability.errors.count, "error") %> prohibited this ability from being saved:</h2>
+      <h2><%= pluralize(@ability.errors.count, "error") %> prohibited this ability from being saved:</h2>
       <ul>
-        <% ability.errors.full_messages.each do |message| %>
+        <% @ability.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
