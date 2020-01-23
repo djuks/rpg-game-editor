@@ -7,34 +7,12 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('jquery')
 
 import "bootstrap"
 import "../stylesheets/application"
 
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-  $('[data-toggle="popover"]').popover()
-  $('.toast').toast({ autohide: false })
-  $('#toast').toast('show')
-})
 
-$(document).on('turbolinks:load', function() {
-
-  $('form').on('click', '.remove_record', function(event) {
-    $(this).prev('input[type=hidden]').val('1');
-    $(this).closest('tr').hide();
-    return event.preventDefault();
-  });
-
-  $('form').on('click', '.add_fields', function(event) {
-    var regexp, time;
-    time = new Date().getTime();
-    regexp = new RegExp($(this).data('id'), 'g');
-    $('.fields').append($(this).data('fields').replace(regexp, time));
-    return event.preventDefault();
-  });
-
-});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

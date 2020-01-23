@@ -12,11 +12,10 @@ class CharactersController < ApplicationController
 
   def new
     @character = Character.new
-    @character.abilities.build
   end
 
   def edit
-    @character.abilities.build
+
   end
 
   def create
@@ -53,7 +52,7 @@ class CharactersController < ApplicationController
     end
 
     def character_params
-      params.require(:character).permit(:name, :image, :description, abilities_attributes: [:id, :_destroy, :character_id, :name, :value, :picture])
+      params.require(:character).permit(:name, :image, :description)
     end
 
     def require_same_user

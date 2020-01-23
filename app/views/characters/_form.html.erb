@@ -20,24 +20,6 @@
         </div>
       </div>
       <br>
-      <h3>Add Abilities:</h3>
-      <br>
-      <table class='table mt-10'>
-        <thead>
-          <tr>
-            <th>Ability</th>
-            <th>Value</th>
-            <th>Image</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody class='fields'>
-          <%= f.fields_for :abilities do |builder| %>
-            <%= render 'ability', f: builder %>
-          <% end %>
-        </tbody>
-      </table>
-      <p class="pl-3"><%= link_to_add_row('Add Ability', f, :abilities, class: 'btn btn-primary') %></p>
 
       <hr/>
       <br>
