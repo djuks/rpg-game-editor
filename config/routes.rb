@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
   resources :characters do
     resources :comments
+    member do
+      put "like" =>"characters#vote"
+    end
   end
   resources :users, only: [:show]
 

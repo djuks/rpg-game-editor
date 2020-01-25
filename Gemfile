@@ -27,6 +27,7 @@ gem 'bootstrap4-kaminari-views'
 # gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'kaminari'
+gem 'acts_as_votable'
 gem "aws-sdk-s3", require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

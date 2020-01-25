@@ -1,7 +1,8 @@
 class CharactersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_character, only: [:show, :edit, :update, :destroy, :vote]
   before_action :require_same_user, only: [:edit, :update, :destroy]
+  respond_to :js, :json, :html
 
   def index
     @characters = Character.order(:name).page(params[:page]).per(3)
@@ -44,6 +45,14 @@ class CharactersController < ApplicationController
     @character.destroy
     flash[:danger] = "Character was deleted successfully"
     redirect_to characters_path
+  end
+
+  def vote
+    if !current_user.liked? @character
+      @character.liked_by current_user
+    elsif current_user.liked? @character
+      @character.unliked_by current_user
+    end
   end
 
   private

@@ -9,8 +9,28 @@
     <% end %>
   </div>
 
+
   <div class="col-md-8 card card-body bg-light mx-auto" >
-    <p>Listing character attributes:</p>
+    <div class="row justify-content-between"">
+      <div class="col-md-4">
+        Listing character attributes:
+      </div>
+      <div class="col-md-4" align="right">
+        <%= link_to like_character_path(@character), class:"like-btn", method: :put, remote: :true do %>
+          <i class="fa fa-heart fa-2x"></i>
+        <%end%>
+        <span class="likes-count">Likes: <%= @character.get_upvotes.size %>
+          <span>
+            <% if (current_user.liked? @character) && (@character.get_upvotes.size > 1)%>
+              , you and others like this character
+            <%elsif (current_user.liked? @character) && (@character.get_upvotes.size == 1)%>
+              , you like this character
+            <%end%>
+          </span>
+      </span>
+      </div>
+    </div>
+
     <div class="row  pt-2 " id="abilities">
       <%= render partial: 'abilities/ability', object: @ability%>
     </div>
@@ -40,6 +60,7 @@
     </div>
   </div>
 </div>
+
 <div class="row">
     <div class="col-md-12 card card-body bg-light mx-auto mt-3">
       <% if @character.description %>
