@@ -4,9 +4,9 @@
   <%end%>
   <span class="likes-count">Likes: <%= @character.get_upvotes.size %>
     <span>
-      <% if (current_user.liked? @character) && (@character.get_upvotes.size > 1)%>
+      <% if current_user && (current_user.liked? @character) && (@character.get_upvotes.size > 1)%>
         , you and others like this character
-      <%elsif (current_user.liked? @character) && (@character.get_upvotes.size == 1)%>
+      <%elsif current_user && (current_user.liked? @character) && (@character.get_upvotes.size == 1)%>
         , you like this character
       <%end%>
     </span>
