@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
   before_action :get_character
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
@@ -16,10 +15,10 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.js { flash.now[:notice] = "Ability was successfully created" }
-        format.html { redirect_to @comment, notice: 'Ability was successfully created.' }
+        format.js { flash.now[:notice] = "comment was successfully created" }
+        format.html { redirect_to @character, notice: 'comment was successfully created.' }
       else
-        format.html { render :new }
+        format.js { render :new }
       end
     end
   end
@@ -50,7 +49,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:description)
+    params.require(:comment).permit(:description, :character_id, :user_id)
   end
 
   def get_character

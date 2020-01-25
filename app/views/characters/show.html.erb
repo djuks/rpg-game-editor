@@ -53,12 +53,12 @@
 <hr/>
 <div class="row">
   <div id="new-comment" class="col-md-4">
-    <%if current_user  %>
+    <%if user_signed_in?  %>
       <%= link_to 'New Comment', new_character_comment_path(@character), remote: true, class:"btn btn-primary" %>
     <%end%>
   </div>
   <div class="col-md-8 " id="comments">
     <h3>Comments:</h3>
-    <%= render partial: 'comments/comment', object: @comments%>
+    <%= render partial: 'comments/comment', object: @comment%>
   </div>
 </div>

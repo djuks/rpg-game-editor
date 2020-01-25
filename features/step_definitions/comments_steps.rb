@@ -6,6 +6,7 @@ Given("I have created character and comment") do
 
   visit user_path(@registered_user)
   click_on "Wizzard"
+  click_on "New Comment"
   fill_in "comment_description", :with => "My first comment"
   click_on "Submit Comment"
 end
