@@ -1,0 +1,23 @@
+<%= form_with(model: [@character, @comment]) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this ability from being saved:</h2>
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row mx-auto pt-2">
+    <div class="field">
+      <%= form.text_area :description,  rows: 5, class: "form-control", placeholder: "Enter Comment Here" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Submit Comment", class: "btn btn-primary btn-lg btn-xlarge" %>
+    </div>
+  </div>
+
+<% end %>

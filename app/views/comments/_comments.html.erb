@@ -1,8 +1,3 @@
-<% comments.each do |comment| %>
-  <%= render(partial: 'comments/comment', object: comment) %>
+<% @character.comments.each do |comment| %>
+ <%= render(partial: 'comments/comment', object: comment) %>
 <% end %>
-<div class="row">
-  <div class="col-md-4 mx-auto">
-    <p> <%= paginate @comments, theme: 'twitter-bootstrap-4' %> </p>
-  </div>
-</div>

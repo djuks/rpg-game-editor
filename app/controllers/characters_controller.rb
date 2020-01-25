@@ -8,7 +8,6 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
     @comments = @character.comments.page(params[:page]).per(3)
   end
 

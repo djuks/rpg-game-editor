@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :abilities
   end
   resources :characters do
-    resources :comments, only: [:create]
+    resources :comments
   end
   resources :users, only: [:show]
 
