@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @character.user
+    if current_user != @character.user && current_user != @comment.user
       redirect_to characters_path
     end
   end
