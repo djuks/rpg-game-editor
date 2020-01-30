@@ -28,7 +28,7 @@ class AbilitiesController < ApplicationController
         format.js { flash.now[:notice] = "Ability was updated successfully" }
         format.html { redirect_to @character, notice: 'Ability was successfully updated.' }
       else
-        format.html { render :edit }
+        format.js { render :edit }
       end
     end
   end

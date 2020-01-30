@@ -1,5 +1,6 @@
 <%= form_with(model: [@character, @ability]) do |form| %>
-  <% if @ability.errors.any? %>
+  <div class="row">
+    <% if @ability.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ability.errors.count, "error") %> prohibited this ability from being saved:</h2>
       <ul>
@@ -9,26 +10,28 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="row mx-auto pt-2">
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-
-    <div class="field">
-      <%= form.label :value %>
-      <%= form.text_field :value %>
-    </div>
-
-    <div class="field">
-      <%= form.label :picture %>
-      <%= form.file_field :picture %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-4">
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :value %>
+        <%= form.text_field :value %>
+      </div>
+
+      <div class="field">
+        <%= form.label :picture %>
+        <%= form.file_field :picture %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
 <% end %>

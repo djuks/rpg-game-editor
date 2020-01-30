@@ -22,7 +22,7 @@
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", validate: true %>
       </div>
 
       <div class="actions mt-2">
