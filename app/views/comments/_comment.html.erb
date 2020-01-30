@@ -10,10 +10,10 @@
         <hr/>
         <div class="row ">
           <div class="col-md-3">
-            <section id="edit-comment"><%= link_to 'Modify', edit_character_comment_path(@character, comment), remote: true, class:"btn-sm btn-warning" %></section>
+            <section id="edit-comment"><%= link_to 'Edit Comment', edit_character_comment_path(@character, comment), remote: true, class:"btn-sm btn-warning" %></section>
           </div>
           <div class="col-md">
-            <section><%= link_to 'Destroy', [@character, comment], method: :delete, data: { confirm: "Are you sure you want to delete comment?" }, remote: true, class:"btn-sm btn-danger delete" %></section>
+            <section><%= link_to 'Delete Comment', [@character, comment], method: :delete, data: { confirm: "Are you sure you want to delete comment?" }, remote: true, class:"btn-sm btn-danger delete" %></section>
           </div>
         </div>
       <% end %>

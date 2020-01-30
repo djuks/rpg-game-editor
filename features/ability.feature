@@ -1,23 +1,24 @@
-Feature: Characters
-  In order to be able to keep track of my character abilities
+Feature: Abilities
+  In order to have character abilities
   As a user
-  I should be able to keep an inventory of my characters abilities
+  I should be able to create, edit and delete character abilities
 
 Background:
   Given I am a registered user
   And I am logged in
+  And I have created character
+  And I visit character show page
 
-Scenario: Listing all characters abilities that user has made
-  Given I have created character with several abilities
-  When I visit character Trol show page
+Scenario: Listing all characters abilities
+  When I create character ability
   Then I should see the list of character abilities
 
-Scenario: Editing character ability
-  Given I have created character and ability
+Scenario: Edit character ability
+  Given I create character ability
   When I edit character ability
-  Then I should see show character page with new ability data
+  Then I should see the new data in character ability
 
-Scenario: Deleting character ability
-  Given I have created character and ability
+Scenario: Delete character ability
+  Given I create character ability
   When I delete character ability
-  Then I should not see ability on character show page
+  Then I should not see character ability
