@@ -1,5 +1,5 @@
 When("I like character") do
-  find('.like-btn').click
+  find('.like-button').click
 end
 
 Then("I should see the likes count is one") do
@@ -7,7 +7,7 @@ Then("I should see the likes count is one") do
 end
 
 When("I Dislike character") do
-  find('.like-btn').click
+  find('.like-button').click
 end
 
 Then("I should see the likes count is zero") do
