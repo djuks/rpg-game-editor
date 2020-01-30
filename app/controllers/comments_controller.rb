@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.js { flash.now[:notice] = "comment was successfully created" }
+        format.js { flash.now[:notice] = "Comment was successfully created" }
         format.html { redirect_to @character, notice: 'comment was successfully created.' }
       else
         format.js { render :new }

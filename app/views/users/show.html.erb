@@ -13,7 +13,7 @@
     <div class="col-md-8 card card-body bg-light pr-2 colsize ml-2 mx-auto">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <h4 class="center"><%= link_to character.name, character%></h4>
+          <h4 class="center"><%= link_to character.name, character %></h4>
         </div>
         <div class="col-md-2" align="right">
           <i class="fa fa-heart blue-heart" align="right"></i>: <%= character.get_upvotes.size %>
@@ -25,6 +25,6 @@
 <% end %>
 <div class="row">
   <div class="col-md-3 mx-auto">
-    <p> <%= paginate @user_characters, theme: 'twitter-bootstrap-4' %> </p>
+    <p><%= paginate @user_characters, theme: 'twitter-bootstrap-4' %></p>
   </div>
 </div>

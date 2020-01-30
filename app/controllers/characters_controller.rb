@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_character, only: [:show, :edit, :update, :destroy, :vote]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  respond_to :js, :json, :html
+  respond_to :js, :html
 
   def index
     @characters = Character.order(:name).page(params[:page]).per(3)
@@ -57,17 +57,17 @@ class CharactersController < ApplicationController
 
   private
 
-    def set_character
-      @character = Character.find(params[:id])
-    end
+  def set_character
+    @character = Character.find(params[:id])
+  end
 
-    def character_params
-      params.require(:character).permit(:name, :image, :description)
-    end
+  def character_params
+    params.require(:character).permit(:name, :image, :description)
+  end
 
-    def require_same_user
-      if current_user != @character.user
-        redirect_to characters_path
-      end
+  def require_same_user
+    if current_user != @character.user
+      redirect_to characters_path
     end
+  end
 end

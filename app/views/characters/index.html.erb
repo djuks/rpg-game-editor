@@ -1,34 +1,30 @@
 <h1 align="center">All characters</h1>
 <hr/>
-
 <% @characters.each do |character| %>
   <div class="row pb-2 ">
     <div class="col-md-2 offset-1  card-img-top card card-body bg-light mx-auto" align="center">
-
-        <% if character.image.attached? %>
-          <%= image_tag(character.image, size: '120x120') %>
-        <% else %>
-          <small>No image</small>
-        <% end %>
-
+      <% if character.image.attached? %>
+        <%= image_tag(character.image, size: '120x120') %>
+      <% else %>
+        <small>No image</small>
+      <% end %>
     </div>
+
     <div class="col-md-8 card card-body bg-light pr-2 colsize ml-2 mx-auto">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <h4 class="center"><%= link_to character.name, character%></h4>
+          <h4 class="center"><%= link_to character.name, character %></h4>
         </div>
         <div class="col-md-2" align="right">
           <i class="fa fa-heart blue-heart" align="right"></i>: <%= character.get_upvotes.size %>
         </div>
       </div>
-
-
       <p><%= truncate(character.description, length: 290) %></p>
     </div>
   </div>
 <% end %>
 <div class="row">
   <div class="col-md-3 mx-auto">
-    <p> <%= paginate @characters, theme: 'twitter-bootstrap-4' %> </p>
+    <p><%= paginate @characters, theme: 'twitter-bootstrap-4' %></p>
   </div>
 </div>
