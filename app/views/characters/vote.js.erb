@@ -1,7 +1,7 @@
 <% if current_user.liked? @character %>
   $('.like-btn').addClass('liked');
 <% else %>
-  $('.like-btn').addClass('liked-btn');
+  $('.like-btn').removeClass('liked');
 <% end %>
 
 $('.likes-count').html("Likes: <%= @character.get_upvotes.size %>")
