@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update(comment_params)
         format.js { flash.now[:notice] = "Comment was updated successfully" }
-        format.html { redirect_to @comment, notice: 'omment was successfully updated.' }
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
       else
         format.html { render :edit }
       end

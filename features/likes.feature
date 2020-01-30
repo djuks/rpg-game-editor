@@ -8,6 +8,7 @@ Background:
   And I am logged in
 
 Scenario: Listing all likes on character show page
-  Given I have created character Ashe and like it
-  When I visit character Ashe show page
+  Given I have created character Ashe
+  And I visit character Ashe show page
+  When I like character Ashe
   Then I should see my like count is one on character show page

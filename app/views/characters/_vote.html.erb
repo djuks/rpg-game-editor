@@ -1,7 +1,7 @@
 <div class="col-md-4" align="right">
   <%= link_to like_character_path(@character), class:"like-btn", method: :put, remote: :true do %>
     <i class="fa fa-heart fa-2x"></i>
-  <%end%>
+  <% end %>
   <span class="likes-count">Likes: <%= @character.get_upvotes.size %>
     <span>
       <% if current_user && (current_user.liked? @character) && (@character.get_upvotes.size > 1)%>
