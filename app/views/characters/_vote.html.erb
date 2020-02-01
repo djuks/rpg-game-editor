@@ -1,0 +1,14 @@
+<div class="col-md-4" align="right">
+  <% if current_user.liked? @character %>
+    <%= link_to like_character_path(@character), class:"liked like-button", method: :put, remote: :true do %>
+      <i class="fa fa-heart fa-2x"></i>
+    <% end %>
+  <% else %>
+    <%= link_to like_character_path(@character), class:"like-btn like-button", method: :put, remote: :true do %>
+      <i class="fa fa-heart fa-2x"></i>
+    <% end %>
+  <% end %>
+  <span class="likes-count">
+    Likes: <%= @character.get_upvotes.size %>
+  </span>
+</div>

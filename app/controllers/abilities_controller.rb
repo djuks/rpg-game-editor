@@ -17,7 +17,7 @@ class AbilitiesController < ApplicationController
         format.js { flash.now[:notice] = "Ability was successfully created" }
         format.html { redirect_to @character, notice: 'Ability was successfully created.' }
       else
-        format.html { render :new }
+        format.js { render :new }
       end
     end
   end
@@ -28,7 +28,7 @@ class AbilitiesController < ApplicationController
         format.js { flash.now[:notice] = "Ability was updated successfully" }
         format.html { redirect_to @character, notice: 'Ability was successfully updated.' }
       else
-        format.html { render :edit }
+        format.js { render :edit }
       end
     end
   end

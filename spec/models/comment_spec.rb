@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Ability, type: :model do
+RSpec.describe Comment, type: :model do
   context 'validation tests' do
     before(:each) do
       @registered_user = FactoryBot.create(:user,
@@ -12,20 +12,21 @@ RSpec.describe Ability, type: :model do
                                      :name => "Ashe",
                                      :description => "My first Ashe")
     end
-    it 'ensures name presence' do
-      ability = @character.abilities.build(value: 5)
-      expect(ability.save).to eq(false)
+    it 'ensures description presence' do
+      comment = @character.comments.build(description: "")
+      expect(comment.save).to eq(false)
     end
 
-    it 'ensures name is uniqe' do
-      ability = @character.abilities.create!(name: "Power", value: 2)
-      ability2 = @character.abilities.build(name: "Power", value: 5)
-      expect(ability2.save).to eq(false)
+    it "ensure comment length is not less then 3 character" do
+      description = "a" * 2
+      comment = @character.comments.build(description: description)
+      expect(comment.save).to eq(false)
     end
 
-    it "ensure value presence" do
-      ability = @character.abilities.build(name: "Power")
-      expect(ability.save).to eq(false)
+    it "ensure comment length is not greater then 100 character" do
+      description = "a" * 101
+      comment = @character.comments.build(description: description)
+      expect(comment.save).to eq(false)
     end
   end
 end

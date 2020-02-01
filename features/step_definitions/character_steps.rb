@@ -1,4 +1,4 @@
-Given(/^I have created several characters$/) do
+Given("I have created several characters") do
   FactoryBot.create(:character,
                     :user => @registered_user,
                     :name => "Trol",
@@ -31,8 +31,8 @@ Then("I should see new character at my listing of characters") do
   expect(page).to have_content("Golem")
 end
 
-Given(/^I have created character$/) do
-  FactoryBot.create(:character,
+Given("I have created character") do
+  @character = FactoryBot.create(:character,
                     :user => @registered_user,
                     :name => "Golem",
                     :description => "My first Golem")

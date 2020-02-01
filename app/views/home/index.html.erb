@@ -1,15 +1,13 @@
-<div class="jumbotron center" >
-  <h1>Welcome to RPG editor</h1>
-  <h2>Create your own heroes today!</h2>
-  <p>
-    <% if current_user %>
-    <% else %>
-      <%= link_to "Sign up",new_user_registration_path, class: "btn btn-danger btn-lg"%>
-    <% end %>
-  </p>
-</div>
+<% if !current_user %>
+  <div class="jumbotron center" >
+    <h1>Welcome to RPG editor</h1>
+    <h2>Create your own heroes today!</h2>
+    <p>
+      <%= link_to "Sign up",new_user_registration_path, class: "btn btn-danger btn-lg" %>
+    </p>
+  </div>
+<% end %>
 <h1 class="center stylelatest">Latest Heroes</h1>
-
 <hr/>
 <div class="row justify-content-between">
   <% @characters.each do |character| %>

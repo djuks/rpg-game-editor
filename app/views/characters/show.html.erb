@@ -10,11 +10,15 @@
   </div>
 
   <div class="col-md-8 card card-body bg-light mx-auto" >
-    <p>Listing character attributes:</p>
+    <div class="row justify-content-between"">
+      <div class="col-md-4">
+        Listing character attributes:
+      </div>
+      <%= render 'vote' %>
+    </div>
 
     <div class="row  pt-2 " id="abilities">
       <%= render partial: 'abilities/ability', object: @ability%>
-
     </div>
 
     <hr/>
@@ -24,10 +28,10 @@
       <%end%>
     </div>
     <hr />
-
     <p>
       <small>Created by: <%= @character.user.username.capitalize %>, <%= time_ago_in_words(@character.created_at) %> ago</small>
     </p>
+
     <div>
       <tr>
         <td><%= link_to 'Back', characters_path, class: "btn btn-primary" %></td>
@@ -42,11 +46,24 @@
     </div>
   </div>
 </div>
+
 <div class="row">
-    <div class="col-md-11 card card-body bg-light mx-auto mt-3">
+    <div class="col-md-12 card card-body bg-light mx-auto mt-3">
       <% if @character.description %>
-        <p class="biography-title"><%=@character.name.capitalize%>'s Biography</p>
-        <p><%=@character.description%></p>
+        <p class="biography-title"><%= @character.name %>'s Biography</p>
+        <p><%= @character.description %></p>
       <%end%>
     <div/>
+</div>
+<hr/>
+<div class="row">
+  <div id="new-comment" class="col-md-4">
+    <% if user_signed_in? %>
+      <%= link_to 'New Comment', new_character_comment_path(@character), remote: true, class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-8 " id="comments">
+    <h3>Comments:</h3>
+    <%= render partial: 'comments/comment', object: @comment %>
+  </div>
 </div>
