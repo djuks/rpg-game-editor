@@ -3,12 +3,12 @@
 
 <% @user_characters.each do |character| %>
   <div class="row pb-2 ">
-    <div class="col-md-2 offset-1  card-img-top card card-body bg-light mx-auto" align="center">
-        <% if character.image.attached? %>
-          <%= image_tag(character.image, size: '120x120') %>
-        <% else %>
-          <small>No image</small>
-        <% end %>
+    <div class="col-md-2 offset-1  mx-auto" align="center">
+      <% if character.image.attached? %>
+        <%= image_tag(character.image, class:"img-thumbnail w-100", style:"height: 162px;") %>
+      <% else %>
+        <%= image_tag('/assets/noimg.jpeg', class:"img-thumbnail w-100", style:"height: 162px;") %>
+      <% end %>
     </div>
     <div class="col-md-8 card card-body bg-light pr-2 colsize ml-2 mx-auto">
       <div class="row justify-content-center">

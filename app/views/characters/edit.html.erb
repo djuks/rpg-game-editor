@@ -1,11 +1,11 @@
 <h1 align="center">Edit Character</h1>
 <hr />
 <div class="row">
-  <div class="col-md-2 offset-1 card-img-top card card-body bg-light mx-auto colsize" align="center">
+  <div class="col-md-2 offset-1 " align="center">
     <% if @character.image.attached? %>
-      <%= image_tag(@character.image, size: '120x120') %>
+      <%= image_tag(@character.image, class: "img-thumbnail", style:"height: 162px;")%>
     <% else %>
-      <small>No image</small>
+      <%= image_tag('/assets/noimg.jpeg', class:"img-thumbnail w-100", style:"height: 162px;") %>
     <% end %>
   </div>
   <div class="col-md-8 mx-auto">

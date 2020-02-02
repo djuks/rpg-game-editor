@@ -9,14 +9,15 @@
 <% end %>
 <h1 class="center stylelatest">Latest Heroes</h1>
 <hr/>
+
 <div class="row justify-content-between">
   <% @characters.each do |character| %>
     <div class="col-md-3  ">
       <div class="card" style="width: 250px;">
         <% if character.image.attached? %>
-          <%= image_tag(character.image, size: '250x250') %>
+          <%= image_tag(character.image, class: "img-thumbnail w-100", style:"height: 250px;")%>
         <% else %>
-          <small>No image</small>
+          <%= image_tag('/assets/noimg.jpeg', class:"img-thumbnail w-100", style:"height: 250px;") %>
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= character.name %></h5>
